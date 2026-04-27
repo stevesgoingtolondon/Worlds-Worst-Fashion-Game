@@ -1,4 +1,4 @@
-# Custom Tournament Bracket Builder
+# Worlds Worst Fashion Game
 **WEB-115 Final Project Proposal**
 Student: Kat Morris | Repo: `WEB-115_FinalProject_Morris`
 
