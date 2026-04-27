@@ -22,10 +22,10 @@ Ever played those stupid flash games as a kid? Well, this is a parody of them. U
 
 | Requirement | Implementation |
 |---|---|
-| **If Statements & Loops** |  |
+| **If Statements & Loops** |Each clothing item will be looped over while being loaded with DOM. |
 | **Event Listeners** | Click listeners on eachcothing item to trigger their appearance on the character sprite. |
-| **DOM Element Creation** | |
-| **Classes & Subclasses** | Each clothing item will be part the clothing class and part of one of 5 subclasses (Acessories, Pants, Shirts, Shoes)  |
+| **DOM Element Creation** |Creating the "store" itself. It will load images from a folder and create html elements for each. |
+| **Classes & Subclasses** | Each clothing item will be part the clothing class and part of one of 5 subclasses (Acessories, Pants, Shirts, Shoes) for layering purposes.  |
 
 ---
 
