@@ -11,7 +11,7 @@ Ever played those stupid flash games as a kid? Well, this is a parody of them. U
 ---
 
 ## Features
-- 50 Unique clothing sprites that will be randomize each round of the game.
+- 30+ Unique clothing sprites that will be randomize each round of the game.
 - A timer
 - 20+ Random Prompts
 - A saving system
