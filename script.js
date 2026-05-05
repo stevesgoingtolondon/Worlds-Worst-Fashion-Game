@@ -33,19 +33,19 @@ const clothingData = {
  //Setting up the shirts 'n pants 'n stuff guhhhhh
   shirt: [
     { name: "Stars' Shirt", img: "starsshirt.png" },
-    { name: "Button down Shirt", img: "buttondown.png" }
+    { name: "Button down Shirt", img: "buttondown.png" },
     { name: "White Boy Of The Year", img: "wboty.png" }
   ],
 
     pants: [
     { name: "Pajama Pants", img: "pjpants.png" },
-    { name: "Short Shorts", img: "shortshorts.png" }
+    { name: "Short Shorts", img: "shortshorts.png" },
     { name: "Grey Sweat Pants", img: "greysweatpants.png" }
   ],
 
       shoes: [
     { name: "Bunny Slippers", img: "bunnyslippers.png" },
-    { name: "Brown Shoes", img: "brownshoes.png" }
+    { name: "Brown Shoes", img: "brownshoes.png" },
     { name: "Slides", img: "slides.png" }
   ],
 
@@ -116,15 +116,11 @@ function generateStore() {
 
       store.appendChild(img);
     }
-  }
+  }}
 
 
 
 
-//Each clothing item will be looped over while being loaded with DOM.
 
 //Click listeners on each cothing item to trigger their appearance on the character sprite.
-
-//Creating the "store" itself. It will load images from a folder and create html elements for each.
-
 //Each clothing item will be part the clothing class and part of one of 5 subclasses (Acessories, Pants, Shirts, Shoes) for layering purposes.
