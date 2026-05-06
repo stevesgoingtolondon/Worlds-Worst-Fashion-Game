@@ -37,26 +37,29 @@ let exampleExtra = imagesDirectory + clothingData["extras"][0].img
 const clothingData = {
   "shirts": [
     { name: "Stars' Shirt", img: "starsshirt.png" },
-    { name: "Button down Shirt", img: "shirt2.png" }
+    { name: "Button down Shirt", img: "buttondown.png" },
+    { name: "White Boy Of The Year", img: "wboty.png" }
   ],
 
-    "pants": [
-    { name: "pants1", img: "pants1" },
-    { name: "pants2", img: "pants2.png" }
+    pants: [
+    { name: "Pajama Pants", img: "pjpants.png" },
+    { name: "Short Shorts", img: "shortshorts.png" },
+    { name: "Grey Sweat Pants", img: "greysweatpants.png" }
   ],
 
-      "shoes": [
-    { name: "shoes1", img: "shoes1" },
-    { name: "shoes2", img: "shoes2.png" }
+      shoes: [
+    { name: "Bunny Slippers", img: "bunnyslippers.png" },
+    { name: "Brown Shoes", img: "brownshoes.png" },
+    { name: "Slides", img: "slides.png" }
   ],
 
-        "extras": [
-    { name: "shoes1", img: "shoes1" },
-    { name: "shoes2", img: "shoes2.png" }
-  ],
+       // acessiores: [
+    //{ name: "shoes1", img: "shoes1" },
+    //{ name: "shoes2", img: "shoes2.png" }
+  //],
 }
 
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null
 let outfit = {
   shirt: null,
   pants: null,
@@ -69,19 +72,22 @@ let timeLeft = 30;
 
 //Game functions yay
 
+//Function to start the game and timer
 function startGame() {
   clearInterval(timer);
   timeLeft = 30;
   document.getElementById("timer").textContent = timeLeft;
-
+  //Hello prompt
   generatePrompt();
+  //Hello Store
   generateStore();
+  //Ken appears in his underwear again. poor guy.
   resetOutfit();
 
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
   timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById("timer").textContent = timeLeft;
+    timeLeft;
+    document.getElementById("timer")
 
     if (timeLeft <= 0) {
       clearInterval(timer);
@@ -91,9 +97,15 @@ function startGame() {
 }
 
 function generatePrompt() {
-  //https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
   const random = prompts[Math.floor(Math.random() * prompts.length)];
+//https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
   document.getElementById("prompt").textContent = random;
+}
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+function generateStore() {
+  const store = document.getElementById("store");
+  store.innerHTML = "";
 }
 
 function generateStore() {
@@ -153,7 +165,6 @@ startGame();
 
 
 
-//Each clothing item will be looped over while being loaded with DOM.
 
 //Click listeners on each cothing item to trigger their appearance on the character sprite.
 
@@ -161,3 +172,4 @@ startGame();
 
 //Each clothing item will be part the clothing class and part of one of 5 subclasses (Extra, Pants, Shirts, Shoes) for layering purposes.
 }
+//Each clothing item will be part the clothing class and part of one of 5 subclasses (Acessories, Pants, Shirts, Shoes) for layering purposes.
