@@ -41,22 +41,22 @@ const clothingData = {
     { name: "White Boy Of The Year", img: "wboty.png" }
   ],
 
-    pants: [
+    "pants": [
     { name: "Pajama Pants", img: "pjpants.png" },
     { name: "Short Shorts", img: "shortshorts.png" },
     { name: "Grey Sweat Pants", img: "greysweatpants.png" }
   ],
 
-      shoes: [
+      "shoes": [
     { name: "Bunny Slippers", img: "bunnyslippers.png" },
     { name: "Brown Shoes", img: "brownshoes.png" },
     { name: "Slides", img: "slides.png" }
   ],
 
-       // acessiores: [
-    //{ name: "shoes1", img: "shoes1" },
-    //{ name: "shoes2", img: "shoes2.png" }
-  //],
+    extra: [
+   { name: "extra1", img: "extra1" },
+  { name: "extra2", img: "extra2.png" }
+  ],
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null
