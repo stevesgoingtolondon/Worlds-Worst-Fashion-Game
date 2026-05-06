@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", inital-scale="1.0">
-    <title>Document</title>
-    <script src="script.js" defer></script>
+  <title>Worlds Worst Fashion Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<h3 id="prompt"></h3>
+<p>Timer: <span id="timer"></span></p>
+
+<button onclick="startGame()">Start Game</button>
+<button onclick="saveOutfit()">Save Outfit</button>
+
+<div id="character">
+  <img id="layer-shirt" class="layer">
+  <img id="layer-pants" class="layer">
+  <img id="layer-shoes" class="layer">
+  <img id="layer-accessory" class="layer">
+</div>
+
+<hr>
+
+<div id="store"></div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
