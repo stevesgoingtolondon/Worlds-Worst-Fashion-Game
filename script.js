@@ -52,14 +52,14 @@ const clothingData = {
     { name: "Bunny Slippers", img: "bunnyslippers.png" },
     { name: "Brown Shoes", img: "brownshoes.png" },
     { name: "Slides", img: "slides.png" },    
-    { name: "Sneakers", img: "sneakers.png" }
+    { name: "Sneakers", img: "slides.png" }
 
   ],
 
- // "extra": [
-    //{ name: "extra1", img: "extra1.png" },
-    //{ name: "extra2", img: "extra2.png" }
-  //],
+  "extra": [
+    { name: "extra1", img: "extra1.png" },
+    { name: "extra2", img: "extra2.png" }
+  ],
 }
 
 let exampleShirts = imagesDirectory + clothingData["shirts"][0].img
@@ -157,19 +157,7 @@ function resetOutfit() {
   document.querySelectorAll(".layer").forEach(function(layer) {
     layer.src = "";
   });
-
-  document.getElementById("kenbase").src = imagesDirectory + "kenbase.png";
 }
-
-  document.querySelectorAll(".layer").forEach(function(layer) {
-    layer.src = "";
-  });
-
-
-  document.querySelectorAll(".layer").forEach(function(layer) {
-    layer.src = "";
-  });
-
 
 function submitOutfit() {
   clearInterval(timer);
@@ -184,3 +172,5 @@ function saveOutfit() {
 
 //Starting actual Game
 startGame();
+
+
