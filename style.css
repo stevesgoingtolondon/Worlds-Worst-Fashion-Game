@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+}
+
+#store {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.item {
+  width: 100px;
+  cursor: pointer;
+  border: 2px solid black;
+  background: white;
+}
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer */
+.layer {
+  width: 200px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#character {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  margin: 20px auto;
+}
+
+#timer,
+#prompt {
+  font-size: 24px;
+  margin-top: 10px;
+}
