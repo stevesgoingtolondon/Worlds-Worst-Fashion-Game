@@ -29,131 +29,12 @@ const gamePrompts = [ "Jury Duty",
 
 let imagesDirectory = "./images/";
 
+
+
 const clothingData = {
   "shirts": [
     { name: "Stars' Shirt", img: "starsshirt.png" },
     { name: "Button down Shirt", img: "buttondown.png" },
-    { name: "White Boy Of The Year", img: "wboty.png" },
-    { name: "Pink Off the Shoulder", img: "offtheshoulder.png" }
-  ],
-
-  "pants": [
-    { name: "Pajama Pants", img: "pjpants.png" },
-    { name: "Short Shorts", img: "shortshorts.png" },
-    { name: "Grey Sweat Pants", img: "sweatpants.png" },
-    { name: "Brown Pants", img: "brownpants.png" }
-  ],
-
-  "shoes": [
-    { name: "Bunny Slippers", img: "bunnyslippers.png" },
-    { name: "Brown Shoes", img: "brownshoes.png" },
-    { name: "Slides", img: "slides.png" },    
-    { name: "Sneakers", img: "sneakers.png" }
-  ]
-};
-
-let exampleShirts = imagesDirectory + clothingData["shirts"][0].img;
-let examplePants = imagesDirectory + clothingData["pants"][0].img;
-let exampleShoes = imagesDirectory + clothingData["shoes"][0].img;
-
-let outfit = {
-  shirt: null,
-  pants: null,
-  shoes: null,
-  accessory: null
-};
-
-let timer;
-let timeLeft = 30;
-
-function startGame() {
-  clearInterval(timer);
-  timeLeft = 30;
-  document.getElementById("timer").textContent = timeLeft;
-
-  generatePrompt();
-  generateStore();
-  resetOutfit();
-
-  timer = setInterval(function() {
-    timeLeft--;
-    document.getElementById("timer").textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      submitOutfit();
-    }
-  }, 1000);
-}
-
-function generatePrompt() {
-  const random = gamePrompts[Math.floor(Math.random() * gamePrompts.length)];
-  document.getElementById("prompt").textContent = random;
-}
-
-function generateStore() {
-  const store = document.getElementById("store");
-  store.innerHTML = "";
-
-  for (let category in clothingData) {
-    for (let item of clothingData[category]) {
-      const img = document.createElement("img");
-
-      img.src = imagesDirectory + item.img;
-      img.className = "item";
-
-      img.onclick = function() {
-        selectItem(category, item, img);
-      };
-
-      store.appendChild(img);
-    }
-  }
-}
-
-function selectItem(category, item, element) {
-  outfit[category] = item;
-
-  const layer = document.getElementById(category);
-
-  if (layer) {
-    layer.src = imagesDirectory + item.img;
-  }
-}
-
-function resetOutfit() {
-  outfit = {
-    shirt: null,
-    pants: null,
-    shoes: null,
-    accessory: null
-  };
-
-  document.querySelectorAll(".layer").forEach(function(layer) {
-    layer.src = "";
-  });
-
-  document.getElementById("kenbase").src = imagesDirectory + "kenbase.png";
-}
-
-  document.querySelectorAll(".layer").forEach(function(layer) {
-    layer.src = "";
-  });
-}
-
-function submitOutfit() {
-  clearInterval(timer);
-  alert("Outfit complete yay!! ");
-}
-
-function saveOutfit() {
-  localStorage.setItem("outfit", JSON.stringify(outfit));
-  alert("Outfit saved!");
-}
-
-startGame();    
-
-{ name: "Button down Shirt", img: "buttondown.png" },
     { name: "White Boy Of The Year", img: "wboty.png" },
     { name: "Pink Off the Shoulder", img: "offtheshoulder.png" }
 
@@ -175,7 +56,10 @@ startGame();
 
   ],
 
-
+ // "extra": [
+    //{ name: "extra1", img: "extra1.png" },
+    //{ name: "extra2", img: "extra2.png" }
+  //],
 }
 
 let exampleShirts = imagesDirectory + clothingData["shirts"][0].img
@@ -280,7 +164,12 @@ function resetOutfit() {
   document.querySelectorAll(".layer").forEach(function(layer) {
     layer.src = "";
   });
-}
+
+
+  document.querySelectorAll(".layer").forEach(function(layer) {
+    layer.src = "";
+  });
+
 
 function submitOutfit() {
   clearInterval(timer);
@@ -295,13 +184,3 @@ function saveOutfit() {
 
 //Starting actual Game
 startGame();
-
-
-
-//Click listeners on each cothing item to trigger their appearance on the character sprite.
-
-//Creating the "store" itself. It will load images from a folder and create html elements for each.
-
-//Each clothing item will be part the clothing class and part of one of 5 subclasses (Extra, Pants, Shirts, Shoes) for layering purposes.
-}
-//Each clothing item will be part the clothing class and part of one of 5 subclasses (Acessories, Pants, Shirts, Shoes) for layering purposes.
