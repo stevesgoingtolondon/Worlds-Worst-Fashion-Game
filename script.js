@@ -26,11 +26,8 @@ const gamePrompts = [ "Jury Duty",
     "Preforming with his brothers band.",
     "Experincing Ross Dress For Less for the first time."
 ];
+
 let imagesDirectory = "./images/";
-let exampleShirts = imagesDirectory + clothingData["shirts"][0].img
-let examplePants = imagesDirectory + clothingData["pants"][0].img
-let exampleShoes = imagesDirectory + clothingData["shoes"][0].img
-let exampleExtra = imagesDirectory + clothingData["extras"][0].img
 
 
 
@@ -38,26 +35,37 @@ const clothingData = {
   "shirts": [
     { name: "Stars' Shirt", img: "starsshirt.png" },
     { name: "Button down Shirt", img: "buttondown.png" },
-    { name: "White Boy Of The Year", img: "wboty.png" }
+    { name: "White Boy Of The Year", img: "wboty.png" },
+    { name: "Pink Off the Shoulder", img: "offtheshoulder.png" }
+
   ],
 
-    "pants": [
+  "pants": [
     { name: "Pajama Pants", img: "pjpants.png" },
     { name: "Short Shorts", img: "shortshorts.png" },
-    { name: "Grey Sweat Pants", img: "greysweatpants.png" }
+    { name: "Grey Sweat Pants", img: "sweatpants.png" },
+    { name: "Brown Pants", img: "brownpants.png" },
+
   ],
 
-      "shoes": [
+  "shoes": [
     { name: "Bunny Slippers", img: "bunnyslippers.png" },
     { name: "Brown Shoes", img: "brownshoes.png" },
-    { name: "Slides", img: "slides.png" }
+    { name: "Slides", img: "slides.png" },    
+    { name: "Sneakers", img: "sneakers.png" }
+
   ],
 
-    extra: [
-   { name: "extra1", img: "extra1" },
-  { name: "extra2", img: "extra2.png" }
-  ],
+ // "extra": [
+    //{ name: "extra1", img: "extra1.png" },
+    //{ name: "extra2", img: "extra2.png" }
+  //],
 }
+
+let exampleShirts = imagesDirectory + clothingData["shirts"][0].img
+let examplePants = imagesDirectory + clothingData["pants"][0].img
+let exampleShoes = imagesDirectory + clothingData["shoes"][0].img
+let exampleExtra = imagesDirectory + clothingData["extra"][0].img
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null
 let outfit = {
@@ -77,17 +85,21 @@ function startGame() {
   clearInterval(timer);
   timeLeft = 30;
   document.getElementById("timer").textContent = timeLeft;
+
   //Hello prompt
   generatePrompt();
+
   //Hello Store
   generateStore();
+
   //Ken appears in his underwear again. poor guy.
   resetOutfit();
 
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-  timer = setInterval(() => {
-    timeLeft;
-    document.getElementById("timer")
+  timer = setInterval(function() {
+    timeLeft--;
+
+    document.getElementById("timer").textContent = timeLeft;
 
     if (timeLeft <= 0) {
       clearInterval(timer);
@@ -97,8 +109,9 @@ function startGame() {
 }
 
 function generatePrompt() {
-  const random = prompts[Math.floor(Math.random() * prompts.length)];
-//https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
+  const random = gamePrompts[Math.floor(Math.random() * gamePrompts.length)];
+
+  //https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
   document.getElementById("prompt").textContent = random;
 }
 
@@ -106,46 +119,44 @@ function generatePrompt() {
 function generateStore() {
   const store = document.getElementById("store");
   store.innerHTML = "";
-}
-
-function generateStore() {
-  const store = document.getElementById("store");
-  store.innerHTML = "";
 
   for (let category in clothingData) {
     for (let item of clothingData[category]) {
       const img = document.createElement("img");
-      img.src = item.img;
+
+      img.src = imagesDirectory + item.img;
       img.className = "item";
 
-      img.onclick = () => selectItem(category, item, img);
+      img.onclick = function() {
+        selectItem(category, item, img);
+      };
 
       store.appendChild(img);
     }
   }
 }
+
 function selectItem(category, item, element) {
   outfit[category] = item;
 
+  const layer = document.getElementById(category);
 
-function resetOutfit() {
-  outfit = {
-    shirt: null,
-    pants: null,
-    shoes: null,
-    accessory: null
-  };
-
-function resetOutfit() {
-  outfit = {
-    shirt: null,
-    pants: null,
-    shoes: null,
-    accessory: null
-  };
-
-  document.querySelectorAll(".layer").forEach(layer => layer.src = "");
+  if (layer) {
+    layer.src = imagesDirectory + item.img;
+  }
 }
+
+function resetOutfit() {
+  outfit = {
+    shirt: null,
+    pants: null,
+    shoes: null,
+    accessory: null
+  };
+
+  document.querySelectorAll(".layer").forEach(function(layer) {
+    layer.src = "";
+  });
 }
 
 function submitOutfit() {
@@ -160,9 +171,7 @@ function saveOutfit() {
 }
 
 //Starting actual Game
-
 startGame();
-
 
 
 
